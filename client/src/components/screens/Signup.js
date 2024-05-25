@@ -10,38 +10,38 @@ const Signup = () => {
 
     const PostData = () => {
         // Assuming Name, Password, and Email are defined elsewhere
-        const Name = "John";
-        const Password = "password123";
-        const Email = "john@example.com";
-    
+        // const Name = "John";
+        // const Password = "password123";
+        // const Email = "john@example.com";
+
         fetch("/Signup", {
             method: "post",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                Name: Name,
-                Password: Password,
-                Email: Email
+                name: Name,
+                password: Password,
+                email: Email
             })
-            
+
         })
-        .then(res => res.json())
-        .then(data => {
-            if (data.error) {
-                M.toast({ html: data.error });           
-            } else {
-                M.toast({ html: data.message });
-                // Redirect to the signin page
-                navigate('/signin');
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            // Handle error gracefully
-        });
+            .then(res => res.json())
+            .then(data => {
+                if (data.error) {
+                    M.toast({ html: data.error });
+                } else {
+                    M.toast({ html: data.message });
+                    // Redirect to the signin page
+                    navigate('/signin');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                // Handle error gracefully
+            });
     }
-    
+
     return (
         <div className="mycard">
             <div className="card auth-card input-field">
